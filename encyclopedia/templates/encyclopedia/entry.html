@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load custom_filters %}
+
+{% block title %}
+    {{entry_title}}
+{% endblock %}
+
+{% block body %}
+    {{content|markdown_to_html|safe}}
+    <a href="{% url 'edit' entry_title=entry_title %}">Edit Post</a>
+{% endblock %}
